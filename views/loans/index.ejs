@@ -124,8 +124,11 @@
                             <td><%= loan.issueDate.toLocaleDateString() %></td>
                             <td><%= loan.dueDate.toLocaleDateString() %></td>
                             <td>
-                                <%= loan.returnDate ? loan.returnDate.toLocaleDateString() : 
-                                    '<span class="badge bg-warning text-white">Non retourné</span>' %>
+                                <% if (loan.returnDate) { %>
+                                    <%= loan.returnDate.toLocaleDateString() %>
+                                <% } else { %>
+                                    <span class="badge bg-warning text-white">Non retourné</span>
+                                <% } %>
                             </td>
                             <td>
                                 <% if (loan.status === 'issued') { %>
